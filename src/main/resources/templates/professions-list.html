@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
+
+        <script type="text/javascript" src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+        <script type="text/javascript" src="/js/prof.js"></script>
+        <link rel="stylesheet" href="/css/app.css"/>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+
+                <ul class="nav navbar-nav">
+                    <li><a href="/">Vacancies</a></li>
+                    <li class="active"><a href="/professions-list">Messages</a></li>
+                </ul>
+
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="search form-control" placeholder="Search"/>
+                    </div>
+                </form>
+
+            </div>
+        </nav>
+
+        <div class="container-fluid" style="margin-top: 60px">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <form action="#" th:action="${action}" th:object="${profession}" method="post">
+                        <div class="form-group">
+                            <input th:field="*{keyword}" type="text" class="form-control" placeholder="Keyword"/>
+                        </div>
+                        <div class="form-group">
+                            <textarea th:field="*{message}" class="form-control" rows="3" placeholder="Message"></textarea>
+                        </div>
+                        <div th:switch="${profession.id}" class="text-right">
+                            <button th:case="'0'" type="submit" class="btn btn-primary pull-right">Create</button>
+                            <div th:case="*">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                                <a href="/professions-list" class="btn btn-default">Cancel</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="professions">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Keyword</th>
+                                <th>Message</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>

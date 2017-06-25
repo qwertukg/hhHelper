@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link rel="stylesheet" href="/webjars/bootstrap/3.3.5/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="/webjars/font-awesome/4.7.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css"/>
+
+        <script type="text/javascript" src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript" src="/webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+        <script type="text/javascript" src="/js/app.js"></script>
+        <link rel="stylesheet" href="/css/app.css"/>
+
+
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Vacancies</a></li>
+                    <li><a href="/professions-list">Messages</a></li>
+                </ul>
+
+                <p class="nav navbar-nav navbar-left" style="margin-right: -11px">
+                    <a class="show-user btn btn-default navbar-btn"><span id="icon" class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+                </p>
+                <form class="user navbar-form navbar-left" action="#" th:action="${action}" th:object="${user}" method="post" style="display: none">
+                        <div class="form-group">
+                            <input th:field="*{login}" type="text" class="form-control" placeholder="Login"/>
+                        </div>
+                        <div class="form-group">
+                            <input th:field="*{password}" type="text" class="form-control" placeholder="Password"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+
+
+
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="search form-control" placeholder="Search"/>
+                    </div>
+                </form>
+
+                <p class="nav navbar-nav navbar-right" style="margin-right: 0">
+                    <a href="/find" type="button" class="btn btn-primary navbar-btn">Find new vacancies</a>
+                    <a href="/reply" type="button" class="btn btn-danger navbar-btn">Send reply</a>
+                </p>
+
+            </div>
+        </nav>
+
+        <div class="container-fluid" style="margin-top: 60px">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="vacancies">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Result</th>
+                                <th>Sent</th>
+                                <th>Keyword</th>
+                                <th>Position</th>
+                                <th>Salary</th>
+                                <th>Company</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </body>
+</html>
