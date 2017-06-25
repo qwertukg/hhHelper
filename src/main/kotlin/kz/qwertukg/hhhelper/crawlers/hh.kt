@@ -49,7 +49,7 @@ fun WebDriver.find(repoV: VacancyRepository, repoP: ProfessionRepository) {
                     val v = oldVacancies.first{ it.url == url }
                     v.result = result
                     vacancies.add(v)
-                } else {
+                } else if (!vacancies.any { it.url == url }) {
                     vacancies.add(Vacancy(true, true, profession.keyword, url, result, name, salary, company, location, description))
                 }
             }
