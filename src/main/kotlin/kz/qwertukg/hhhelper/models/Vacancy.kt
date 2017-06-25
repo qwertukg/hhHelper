@@ -37,4 +37,15 @@ class Vacancy(
 
     @Suppress("DEPRECATION")
     val keywordDecoded: String get() = URLDecoder.decode(keyword)
+
+    val resultText: String get() {
+        when (result) {
+            -1000 -> return "<span class='text-warning'>Ошибка</span>"
+            -1 -> return "<span class='text-danger'>Отказ</span>"
+            1 -> return "<span class='text-success'>Приглашение</span>"
+        }
+
+        if (replied) return "<span class='text-info'>Отправлено</span>"
+        else return "<span class='text-muted'>Новое</span>"
+    }
 }

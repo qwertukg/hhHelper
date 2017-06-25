@@ -4,7 +4,7 @@ $(document).ready(function(){
         ajax: { url: "/vacancies", dataSrc: "" },
         columns: [
             { "data": "id" },
-            { "data": "result" },
+            { "data": "result_text" },
             { "data": "reply_checkbox" },
             { "data": "keyword_decoded" },
             { "data": "position_link" },
